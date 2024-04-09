@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./NavBar.css";
 import { assets } from "../../assets/assets";
 import { Link, NavLink } from "react-router-dom";
-const NavBar = () => {
+const NavBar = ({ setShowLonIn }) => {
   const [menu, setMenu] = useState("home");
   return (
     <div className="navbar">
-      <img src={assets.logo} alt="" className="logo" />
+      <Link to="/">
+        <img src={assets.logo} alt="" className="logo" />
+      </Link>
       <ul className="navbar-menu">
         <Link
           to="/"
@@ -42,10 +44,13 @@ const NavBar = () => {
         <img src="./searching.gif" alt="" />
         <div className="navbar-search-icon">
           {/* <img src={assets.basket_icon} alt="" /> */}
-          <img src="./grocery.gif" alt="" />
+          <Link to="/cart">
+            {" "}
+            <img src="./grocery.gif" alt="" />{" "}
+          </Link>
           <div className="dot"></div>
         </div>
-        <button>sign in</button>
+        <button onClick={() => setShowLonIn(true)}>sign in</button>
       </div>
     </div>
   );
