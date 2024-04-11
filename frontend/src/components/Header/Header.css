@@ -4,6 +4,7 @@
     background: no-repeat;
     background-size: contain;
     position: relative;
+    margin-top: 100px;
 }
 .header-contents{
     position: absolute;
