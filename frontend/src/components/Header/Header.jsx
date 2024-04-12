@@ -16,9 +16,10 @@ const Header = () => {
           Delivery that satisfies your hunger | Filling your tummy on time is
           what we care about.
         </p>
-        <button>
-          <a href="#explore-menu"> View Menu </a>
-        </button>
+
+        <a href="#explore-menu">
+          <button> View Menu </button>
+        </a>
       </div>
     </div>
   );
