@@ -1,8 +1,19 @@
 import React, { useContext } from "react";
 import "./PlaceOrder.css";
 import { StoreContext } from "../../Context/StoreContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PlaceOrder = () => {
+  function notify(e) {
+    e.preventDefault();
+    toast.success("Order placed", {
+      position: "top-center",
+      autoClose: 2000,
+      theme: "colored",
+    });
+    // alert("order placed");
+  }
   const { getTotalCartAmmount } = useContext(StoreContext);
   return (
     <form className="place-order">
@@ -45,8 +56,9 @@ const PlaceOrder = () => {
               </b>
             </div>
           </div>
-          <button>PROCEED TO PAYMENT</button>
+          <button onClick={(e) => notify(e)}>PROCEED TO PAYMENT</button>
         </div>
+        <ToastContainer />
       </div>
     </form>
   );

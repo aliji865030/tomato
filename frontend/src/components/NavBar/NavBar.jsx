@@ -6,7 +6,8 @@ import { StoreContext } from "../../Context/StoreContext";
 const NavBar = ({ setShowLonIn }) => {
   const [menu, setMenu] = useState("home");
 
-  const { getTotalCartAmmount } = useContext(StoreContext);
+  const { getTotalCartAmmount, logInStatus, useName } =
+    useContext(StoreContext);
   return (
     <div className="navbar">
       <Link to="/">
@@ -45,7 +46,7 @@ const NavBar = ({ setShowLonIn }) => {
       </ul>
       <div className="navbar-right">
         {/* <img src={assets.search_icon} alt="" /> */}
-        <img src="./searching.gif" alt="" />
+        {/* <img src="./searching.gif" alt="" /> */}
         <div className="navbar-search-icon">
           {/* <img src={assets.basket_icon} alt="" /> */}
           <Link to="/cart">
@@ -54,7 +55,14 @@ const NavBar = ({ setShowLonIn }) => {
           </Link>
           <div className={getTotalCartAmmount() === 0 ? "" : "dot"}></div>
         </div>
-        <button onClick={() => setShowLonIn(true)}>sign in</button>
+        {logInStatus ? (
+          <i
+            class="fa-solid fa-user"
+            style={{ fontSize: "32px", color: "tomato", cursor: "pointer" }}
+          ></i>
+        ) : (
+          <button onClick={() => setShowLonIn(true)}>sign in</button>
+        )}
       </div>
     </div>
   );
