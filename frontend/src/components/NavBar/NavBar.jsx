@@ -10,7 +10,8 @@ const NavBar = ({ setShowLonIn }) => {
   return (
     <div className="navbar">
       <Link to="/">
-        <img src={assets.logo} alt="" className="logo" />
+        {/* <img src={assets.logo} alt="" className="logo" /> */}
+        <h1 className="logo">TasteTrekker.</h1>
       </Link>
       <ul className="navbar-menu">
         <Link
@@ -18,28 +19,28 @@ const NavBar = ({ setShowLonIn }) => {
           onClick={() => setMenu("home")}
           className={menu === "home" ? "active" : ""}
         >
-          home
+          HOME
         </Link>
         <a
           href="#explore-menu"
           onClick={() => setMenu("menu")}
           className={menu === "menu" ? "active" : ""}
         >
-          menu
+          MENU
         </a>
         <a
           href="#app-download"
           onClick={() => setMenu("mobile-app")}
           className={menu === "mobile-app" ? "active" : ""}
         >
-          mobile-app
+          APP
         </a>
         <a
           href="#footer"
           onClick={() => setMenu("contact-us")}
           className={menu === "contact-us" ? "active" : ""}
         >
-          contact us
+          CONTACT
         </a>
       </ul>
       <div className="navbar-right">

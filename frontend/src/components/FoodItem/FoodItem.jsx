@@ -3,9 +3,15 @@ import "./FoodItem.css";
 import { assets } from "../../assets/assets";
 import { StoreContext } from "../../Context/StoreContext";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const FoodItem = ({ id, name, price, description, image }) => {
   const [itemCont, setItemCount] = useState(0);
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  function notify() {
+    toast("Wow so easy!");
+  }
   return (
     <div className="food-item">
       <div className="food-item-img-container">
@@ -13,7 +19,10 @@ const FoodItem = ({ id, name, price, description, image }) => {
         {!cartItems[id] ? (
           <img
             className="add"
-            onClick={() => addToCart(id)}
+            onClick={() => {
+              addToCart(id);
+              notify;
+            }}
             src={assets.add_icon_white}
             alt=""
           />
@@ -32,6 +41,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
             />
           </div>
         )}
+        <ToastContainer />
       </div>
       <div className="food-item-info">
         <div className="food-item-name-rating">
@@ -39,7 +49,9 @@ const FoodItem = ({ id, name, price, description, image }) => {
           <img src={assets.rating_starts} alt="" />
         </div>
         <p className="food-item-desc">{description}</p>
-        <p className="food-item-price">${price}</p>
+        <p className="food-item-price" onClick={notify}>
+          ${price}
+        </p>
       </div>
     </div>
   );

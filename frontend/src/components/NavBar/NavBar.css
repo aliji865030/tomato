@@ -8,9 +8,12 @@
     align-items: center;
     background-color: white;
     width: 80%;
+    
 }
 .navbar .logo{
     width: 150px;
+    font-size: 36px;
+    color: tomato;
 }
 .navbar-menu{
     display: flex;

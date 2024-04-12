@@ -6,7 +6,8 @@ const Footer = () => {
     <div className="footer" id="footer">
       <div className="footer-content">
         <div className="footer-content-left">
-          <img src={assets.logo} alt="" />
+          {/* <img src={assets.logo} alt="" /> */}
+          <h1 className="footer-logo">TasteTrekker.</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quasi
             qui maiores, neque officiis quo quaerat porro aliquam dolore
@@ -14,18 +15,32 @@ const Footer = () => {
             sint enim atque laboriosam. Culpa officia tenetur aperiam.
           </p>
           <div className="footer-social-icons">
-            <img src={assets.facebook_icon} alt="" />
-            <img src={assets.twitter_icon} alt="" />
-            <img src={assets.linkedin_icon} alt="" />
+            <a href="https://www.facebook.com/profile.php?id=100007029992625">
+              <img src={assets.facebook_icon} alt="" />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100007029992625">
+              <img src={assets.twitter_icon} alt="" />
+            </a>
+            <a href="https://www.linkedin.com/in/abbas-ali-294821212">
+              <img src={assets.linkedin_icon} alt="" />
+            </a>
           </div>
         </div>
         <div className="footer-content-center">
           <h2>COMPANY</h2>
           <ul>
-            <li>Home</li>
-            <li>About us</li>
-            <li>Delivery</li>
-            <li>Privacy policy</li>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About us</a>
+            </li>
+            <li>
+              <a href="#">Delivery</a>
+            </li>
+            <li>
+              <a href="#">Privacy policy</a>
+            </li>
           </ul>
         </div>
         <div className="footer-content-right">

@@ -5,6 +5,7 @@ const Header = () => {
   return (
     <div
       className="header"
+      id="header"
       style={{ backgroundImage: "url('./header_img.png')" }}
     >
       <div className="header-contents">
@@ -15,7 +16,9 @@ const Header = () => {
           Delivery that satisfies your hunger | Filling your tummy on time is
           what we care about.
         </p>
-        <button>View Menu</button>
+        <button>
+          <a href="#explore-menu"> View Menu </a>
+        </button>
       </div>
     </div>
   );

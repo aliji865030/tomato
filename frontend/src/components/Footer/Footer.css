@@ -21,6 +21,11 @@
     align-items: start;
     gap: 20px;
 }
+.footer-content-left .footer-logo{
+    width: 150px;
+    font-size: 36px;
+    color: rgb(250, 71, 39);
+}
 .footer-content-left li,.footer-content-center li,.footer-content-right li{
     list-style: none;
     margin-bottom: 10px;
