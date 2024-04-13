@@ -5,9 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Appdownload = () => {
-  // function notify() {
-  //   // coming soon
-  // }
+
   function notify() {
     toast.info("COMING SOON.....", {
       position: "top-center",
@@ -15,6 +13,7 @@ const Appdownload = () => {
       theme: "colored",
     });
   }
+  
   return (
     <div className="app-download" id="app-download">
       <p>

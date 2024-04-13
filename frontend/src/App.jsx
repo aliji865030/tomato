@@ -8,7 +8,9 @@ import Footer from "./components/Footer/Footer";
 import LogIn from "./components/Login/LogIn";
 
 const App = () => {
+
   const [showLogIn, setShowLonIn] = useState(false);
+  
   return (
     <>
       {showLogIn ? <LogIn setShowLonIn={setShowLonIn} /> : ""}

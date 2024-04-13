@@ -2,16 +2,13 @@ import React, { useContext, useState } from "react";
 import "./FoodItem.css";
 import { assets } from "../../assets/assets";
 import { StoreContext } from "../../Context/StoreContext";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const [itemCont, setItemCount] = useState(0);
+
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
-  function notify() {
-    toast("Wow so easy!");
-  }
+
   return (
     <div className="food-item">
       <div className="food-item-img-container">
@@ -21,7 +18,6 @@ const FoodItem = ({ id, name, price, description, image }) => {
             className="add"
             onClick={() => {
               addToCart(id);
-              notify;
             }}
             src={assets.add_icon_white}
             alt=""

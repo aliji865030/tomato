@@ -5,6 +5,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PlaceOrder = () => {
+  
+  const { getTotalCartAmmount } = useContext(StoreContext);
+
   function notify(e) {
     e.preventDefault();
     toast.success("Order placed", {
@@ -12,9 +15,8 @@ const PlaceOrder = () => {
       autoClose: 2000,
       theme: "colored",
     });
-    // alert("order placed");
   }
-  const { getTotalCartAmmount } = useContext(StoreContext);
+  
   return (
     <form className="place-order">
       <div className="place-order-left">

@@ -4,8 +4,11 @@ import { assets } from "../../assets/assets";
 import { StoreContext } from "../../Context/StoreContext";
 
 const LogIn = ({ setShowLonIn }) => {
+
   const [currentState, setCurrentState] = useState("Sign up");
+
   const { signUp, setEmail, setPassword, logIn } = useContext(StoreContext);
+
   return (
     <div className="login">
       <form className="login-popup-container">
@@ -35,7 +38,6 @@ const LogIn = ({ setShowLonIn }) => {
           />
         </div>
         <button
-          // onClick={currentState === "sign up" ? signUp : logIn}
           onClick={
             currentState === "Sign up" ? (e) => signUp(e) : (e) => logIn(e)
           }

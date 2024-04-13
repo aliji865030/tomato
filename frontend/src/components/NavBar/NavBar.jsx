@@ -4,14 +4,14 @@ import { assets } from "../../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import { StoreContext } from "../../Context/StoreContext";
 const NavBar = ({ setShowLonIn }) => {
+
   const [menu, setMenu] = useState("home");
 
-  const { getTotalCartAmmount, logInStatus, useName } =
-    useContext(StoreContext);
+  const { getTotalCartAmmount, logInStatus, useName } = useContext(StoreContext);
+
   return (
     <div className="navbar">
       <Link to="/">
-        {/* <img src={assets.logo} alt="" className="logo" /> */}
         <h1 className="logo">TasteTrekker.</h1>
       </Link>
       <ul className="navbar-menu">
@@ -45,10 +45,7 @@ const NavBar = ({ setShowLonIn }) => {
         </a>
       </ul>
       <div className="navbar-right">
-        {/* <img src={assets.search_icon} alt="" /> */}
-        {/* <img src="./searching.gif" alt="" /> */}
         <div className="navbar-search-icon">
-          {/* <img src={assets.basket_icon} alt="" /> */}
           <Link to="/cart">
             {" "}
             <img src="./grocery.gif" alt="" />{" "}
