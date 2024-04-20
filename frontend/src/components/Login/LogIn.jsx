@@ -7,7 +7,7 @@ const LogIn = ({ setShowLonIn }) => {
 
   const [currentState, setCurrentState] = useState("Sign up");
 
-  const { signUp, setEmail, setPassword, logIn } = useContext(StoreContext);
+  const { signUp, setEmail, setPassword, logIn,setYourName,password,email } = useContext(StoreContext);
 
   return (
     <div className="login">
@@ -22,15 +22,17 @@ const LogIn = ({ setShowLonIn }) => {
         </div>
         <div className="login-popup-input">
           {currentState === "Login" ? null : (
-            <input type="text" placeholder="Your name" required />
+            <input type="text" placeholder="Your name" onChange={(e)=>setYourName(e.target.value)} required />
           )}
           <input
+          value={email}
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Your email"
             required
           />
           <input
+            value={password}
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}

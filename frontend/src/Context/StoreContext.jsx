@@ -1,9 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import { food_list } from "../assets/assets";
-import { app } from "./../components/Firebase/FireBase";
+import { app, firestore } from "./../components/Firebase/FireBase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword } from "firebase/auth";
+import {getAuth , createUserWithEmailAndPassword , signInWithEmailAndPassword,signOut } from "firebase/auth";
+import { Database, ref, set } from 'firebase/database';
+import { doc, setDoc,getDoc } from 'firebase/firestore';
+
 
 export const StoreContext = createContext(null);
 
@@ -13,16 +16,25 @@ const StoreContextProvider = (props) => {
   const [password, setPassword] = useState();
   const [logInStatus, setLogInStatus] = useState(false);
   const [useName, setUserName] = useState();
+  const [yourName,setYourName]=useState();
+  const [showSignOut,setShowSingOut]=useState(false)
 
   const auth = getAuth();
 
   async function signUp(e) {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
       alert("user added");
       setEmail("");
       setPassword("");
+
+      await setDoc(doc(firestore, 'users', user.uid), {
+        name: yourName,
+        email: email,
+      });
+
     } catch (err) {
       alert(err.message);
     }
@@ -32,12 +44,32 @@ const StoreContextProvider = (props) => {
     e.preventDefault();
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
+      const user = result.user;
+      const userDoc = await getDoc(doc(firestore, 'users', user.uid));
+      
+      if (userDoc.exists()) {
+        setUserName(userDoc.data().name)
+      }
+
+      // console.log(result.user);
       alert("user login");
       setEmail("");
       setPassword("");
       setLogInStatus(true);
     } catch (err) {
       alert(err.message);
+    }
+  }
+
+  const logOut = async () => {
+    try {
+    await signOut(auth);
+    alert("user logOut")
+    setEmail("")
+        setPassword("")
+    setLogInStatus(false)
+    } catch (err){
+      console.error(err);
     }
   }
 
@@ -78,6 +110,12 @@ const StoreContextProvider = (props) => {
     logInStatus,
     useName,
     setUserName,
+    setYourName,
+    setShowSingOut,
+    showSignOut,
+    logOut,
+    email,
+    password
   };
 
   return (

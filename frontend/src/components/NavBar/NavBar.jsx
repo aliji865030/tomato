@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import "./NavBar.css";
-import { assets } from "../../assets/assets";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { StoreContext } from "../../Context/StoreContext";
 const NavBar = ({ setShowLonIn }) => {
 
   const [menu, setMenu] = useState("home");
 
-  const { getTotalCartAmmount, logInStatus, useName } = useContext(StoreContext);
+  const { getTotalCartAmmount, logInStatus,useName,setShowSingOut,logOut } = useContext(StoreContext);
 
   return (
     <div className="navbar">
@@ -47,16 +46,18 @@ const NavBar = ({ setShowLonIn }) => {
       <div className="navbar-right">
         <div className="navbar-search-icon">
           <Link to="/cart">
-            {" "}
-            <img src="./grocery.gif" alt="" />{" "}
+            <img src="./grocery.gif" alt="" />
           </Link>
           <div className={getTotalCartAmmount() === 0 ? "" : "dot"}></div>
         </div>
         {logInStatus ? (
-          <i
+          <span style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+            <i onClick={logOut}
             class="fa-solid fa-user"
             style={{ fontSize: "32px", color: "tomato", cursor: "pointer" }}
           ></i>
+          <p>{useName}</p>
+          </span>
         ) : (
           <button onClick={() => setShowLonIn(true)}>sign in</button>
         )}

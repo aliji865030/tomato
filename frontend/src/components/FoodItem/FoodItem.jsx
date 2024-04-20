@@ -2,8 +2,6 @@ import React, { useContext, useState } from "react";
 import "./FoodItem.css";
 import { assets } from "../../assets/assets";
 import { StoreContext } from "../../Context/StoreContext";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const FoodItem = ({ id, name, price, description, image }) => {
 
@@ -37,7 +35,6 @@ const FoodItem = ({ id, name, price, description, image }) => {
             />
           </div>
         )}
-        <ToastContainer />
       </div>
       <div className="food-item-info">
         <div className="food-item-name-rating">
